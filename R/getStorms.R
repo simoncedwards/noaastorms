@@ -40,7 +40,7 @@ cleanDataframe <- function(basinData) {
   basinData$LON <- as.numeric(gsub("^ ", "", basinData$LON))
   basinData$WMO_WIND <- as.numeric(gsub("^ ", "", basinData$WMO_WIND))
   basinData$NAME <- as.factor(basinData$NAME)
-  basinData$ISO_TIME <- as.Date(basinData$ISO_TIME)
+  basinData$ISO_TIME <- as.POSIXct(basinData$ISO_TIME)
 
   # filter apparent erroneous coordinates
   basinData.filtered <- dplyr::filter(basinData,
